@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Address, Reviews, Lessons
+from api.models import db, User, Address, Reviews, Lessons, LessonsAddresses
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 
@@ -186,6 +186,26 @@ def delete_lesson(lesson_id):
     }
       
     return jsonify(response_body), 200
+
+@api.route('/add_lesson_details', methods=['POST'])
+@jwt_required()
+def add_lesson_details():
+
+    body = request.get_json()
+    lesson_details = LessonsAddresses(
+        name = body['name'],
+        description = body['description'],
+        price = body['price']
+    )
+    db.session.add(lesson_details)
+    db.session.commit()
+
+    response_body = {
+        "message": "Lesson created"
+    }
+
+    return jsonify(response_body), 200
+
 
 @api.route('/get_reviews', methods=['GET'])
 def get_reviews():

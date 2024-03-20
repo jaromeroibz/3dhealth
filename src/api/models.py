@@ -4,7 +4,6 @@ import sys
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy import create_engine
-from enum import Enum
 
 db = SQLAlchemy()
 
@@ -56,6 +55,7 @@ class Lessons(db.Model):
     name = db.Column(db.String(120), unique=False, nullable=False)
     description = db.Column(db.String(400), unique=False, nullable=False)
     price = db.Column(db.String(25), unique = False, nullable = True)
+    address_id = db.Column(db.Integer, db.ForeignKey('address.id'))
 
 
     def __repr__(self):
@@ -66,8 +66,30 @@ class Lessons(db.Model):
             "id": self.id,
             "name": self.name,
             "description": self.description,
-            "price": self.price  
+            "price": self.price,
+            "address_id": self.address_id  
         }
+    
+class LessonsAddresses(db.Model):
+    __tablename__='lessons_addresses'
+    id = db.Column(db.Integer, primary_key=True)
+    lesson_id = db.Column(db.Integer, db.ForeignKey('lessons.id'))   
+    address_id = db.Column(db.Integer, db.ForeignKey('address.id'))
+    date = db.Column(db.String(15), unique = False, nullable = False)
+    lessons = db.relationship(Lessons)
+    address = db.relationship(Address)
+
+    def __repr__(self):
+        return f'<LessonsAddresses {self.id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "lesson_id": self.lesson_id,
+            "address_id": self.address_id,
+            "date": self.date
+        }
+    
 
 class Reviews(db.Model):
     __tablename__='reviews'

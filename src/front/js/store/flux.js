@@ -13,25 +13,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			lessons: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
+			getLessons: async () =>{
+				
+				const requestOptions = {
+					headers: { 'Content-Type': 'application/json'},
+					body: JSON.stringify(data)
+				}
+
+				let response = await fetch(process.env.BACKEND_URL+'/api/get_lessons', requestOptions)
+			
+				let data = await response.json()
+
+				if (response.ok){
+				  setStore({
+					lessons: data
+				  })
+				  console.log('Lesson exist')
+				}
+			},
+			getAddresses: async () =>{
+				
+				const requestOptions = {
+					headers: { 'Content-Type': 'application/json'},
+					body: JSON.stringify(data)
+				}
+
+				let response = await fetch(process.env.BACKEND_URL+'/api/get_addresses', requestOptions)
+			
+				let data = await response.json()
+
+				if (response.ok){
+				  setStore({
+					addresses: data
+				  })
+				  console.log('Addresses exist')
+				}	
+			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
-			},
-
-			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
-				}
 			},
 			changeColor: (index, color) => {
 				//get the store

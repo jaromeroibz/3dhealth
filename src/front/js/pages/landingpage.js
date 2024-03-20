@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
-import "../../styles/home.css";
+import adncells from "../../img/adncells.jpg"
+
 
 export const LandingPage = () => {
-    const { store, actions } = useContext(Context);
 
     return(
-        <h1>3D Health</h1>
+        <>
+        <div className="landing-page-container">
+            <h1>3D Health</h1>
+            <section className="hero">
+                <img src={adncells} className="img1"></img>
+            </section>
+        </div>
+        </>
     )
 
 }
