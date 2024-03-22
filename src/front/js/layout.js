@@ -10,6 +10,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { ContactForm } from "./component/contactForm";
 import { ClassSchedule } from "./pages/classSchedule";
+import { Success } from "./pages/success";
 
 //create your first component
 const Layout = () => {
@@ -29,6 +30,7 @@ const Layout = () => {
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<ClassSchedule />} path="/schedule" />
                         <Route element={<ContactForm />} path="/contactform" />
+                        <Route element={<Success />} path="/success" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

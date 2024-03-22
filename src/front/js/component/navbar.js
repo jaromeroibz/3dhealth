@@ -41,7 +41,7 @@ export const Navbar = () => {
 						</span>
 					</div>
 				</Link>
-				<Link to="/" className="nav-item m-3">
+				<Link to="/contactform" className="nav-item m-3">
 					<div className="btn-wrap px-3">
 						<span className="button parallelogram" href="#">
 							<span className="skew-fix">Contact us</span>

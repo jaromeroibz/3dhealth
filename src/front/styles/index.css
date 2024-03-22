@@ -1,9 +1,9 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
-
 body {
   background-color: rgb(243, 240, 240);
+  padding-top: 200px;
 }
 .navbar{
     border: black;
@@ -24,7 +24,6 @@ body {
   }
   
 .button:hover {
-  
     box-shadow: 0 0 0 ;
   }
   
@@ -66,4 +65,19 @@ body {
 }
 .lesson-list{
   display: inline-block;
+}
+.contact-form-container{
+  background: blue;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  height: 100vh;
+  width: 100%;
+  background-image: url('https://img.freepik.com/free-photo/3d-medical-background-with-virus-cells-dna-strand_1048-8470.jpg?w=900&t=st=1711117685~exp=1711118285~hmac=35e80f95f7323b7956d9f0b44df0fc20c1f3f8138accbb88426ad5229b565113');
+  background-size: cover;
+}
+.success{
+  display: flex;
+  justify-content: center;
+  align-items:center;
 }

@@ -136,6 +136,23 @@ def get_lesson(lesson_id):
 
     return jsonify(get_lesson.serialize())
 
+@api.route('/get_lesson_details/<int:lesson_id>/<int:address_id>', methods=['GET'])
+def get_lesson_details(lesson_id, address_id):
+    get_lesson_ids = LessonsAddresses.query.filter_by(lesson_id=lesson_id, address_id=address_id).first()
+    print(get_lesson_ids)
+    get_lesson_details = Lessons.query.filter_by(id=lesson_id).first()
+    print(get_lesson_details.serialize())
+    get_address_details = Address.query.filter_by(id=address_id).first()
+    print(get_address_details.serialize())
+    all_details = []
+    all_details.append(get_address_details.serialize())
+    all_details.append(get_lesson_details.serialize())
+    all_details.append(get_lesson_ids.serialize())
+
+    print(all_details)
+
+    return jsonify(all_details)
+
 @api.route('/add_lesson', methods=['POST'])
 @jwt_required()
 def add_lesson():
@@ -187,15 +204,15 @@ def delete_lesson(lesson_id):
       
     return jsonify(response_body), 200
 
-@api.route('/add_lesson_details', methods=['POST'])
+@api.route('/add_lesson_details/<int:lesson_id>/<int:address_id>', methods=['POST'])
 @jwt_required()
-def add_lesson_details():
+def add_lesson_details(lesson_id, address_id):
 
     body = request.get_json()
     lesson_details = LessonsAddresses(
-        name = body['name'],
-        description = body['description'],
-        price = body['price']
+        lesson_id = lesson_id,
+        address_id = address_id,
+        date = body['date']
     )
     db.session.add(lesson_details)
     db.session.commit()
