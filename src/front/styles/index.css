@@ -3,7 +3,7 @@
 */
 body {
   background-color: rgb(243, 240, 240);
-  padding-top: 200px;
+  padding-top: 100px;
 }
 .navbar{
     border: black;
@@ -49,35 +49,50 @@ body {
     width: 100%; height: 500px; background-color: pink;
   }
 
-.contactform{
-  padding-top: 200px;
-}
 .calendar{
   padding-top: 200px;
   margin: auto;
 }
-.lessons{
+.lesson-container{
   padding-top: 200px;
-}
-.available-lessons{
   display: flex;
-  border-radius: 70%;
+  width: 75%;
+  margin: auto;
 }
-.lesson-list{
-  display: inline-block;
+
+.lesson-img{
+  height: 250px;
+  width: 250px;
 }
 .contact-form-container{
-  background: blue;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  height: 100vh;
-  width: 100%;
-  background-image: url('https://img.freepik.com/free-photo/3d-medical-background-with-virus-cells-dna-strand_1048-8470.jpg?w=900&t=st=1711117685~exp=1711118285~hmac=35e80f95f7323b7956d9f0b44df0fc20c1f3f8138accbb88426ad5229b565113');
-  background-size: cover;
-}
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://img.freepik.com/free-photo/3d-medical-background-with-virus-cells-dna-strand_1048-8470.jpg?w=900&t=st=1711117685~exp=1711118285~hmac=35e80f95f7323b7956d9f0b44df0fc20c1f3f8138accbb88426ad5229b565113');
+    background-size: cover;
+    .contactform{
+      border: 1px solid rgb(142, 140, 140);
+      padding: 25px;
+      border-radius: 5px;
+      backdrop-filter: blur(20px);
+      label{
+        font-size: .9;
+        color: white;
+        margin-bottom: 1rem;
+      }
+      .form-control{
+        background: rgba(255, 255, 255, .2);
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
 .success{
-  display: flex;
-  justify-content: center;
-  align-items:center;
+  width: 40%;
+  margin:auto;
 }
+          
+
+

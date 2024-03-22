@@ -34,10 +34,10 @@ export const Navbar = () => {
 						</span>
 					</div>
 				</Link>
-				<Link to="/schedule" className="nav-item m-3">
+				<Link to="/lessons" className="nav-item m-3">
 					<div className="btn-wrap px-3">
 						<span className="button parallelogram" href="#">
-							<span className="raleway-navbar-font skew-fix">Class Schedule</span>
+							<span className="raleway-navbar-font skew-fix">Lessons</span>
 						</span>
 					</div>
 				</Link>

@@ -28,10 +28,8 @@ export const ContactForm = () => {
 
   return (
     <>
-    <h1>Contact Us</h1>
-    <p>Lorem ipsum</p>
     <div className='contact-form-container'>
-      <form className='contactform' ref={form} onSubmit={sendEmail}>
+      <form autoComplete='off'className='contactform' ref={form} onSubmit={sendEmail}>
         {/* <label>Name</label>
         <input type="text" name="user_name" />
         <label>Email</label>
@@ -49,10 +47,10 @@ export const ContactForm = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-          <textarea className="form-control" name="message" id="textarea" rows="3" placeholder="Write your concerns" required></textarea>
+          <textarea className="form-control" name="message" id="textarea" rows="5" placeholder="Write your concerns" required></textarea>
         </div>
         <div className="mb-3">
-        <button className="btn btn-primary" type="submit" value="Send">Submit form</button>
+        <button className="btn btn-primary" type="submit" value="Send">Submit</button>
         </div>
       </form>
     </div>
